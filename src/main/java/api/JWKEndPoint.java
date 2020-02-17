@@ -27,7 +27,7 @@ public class JWKEndPoint {
         String pemEncodedRSAPublicKey = PEMKeyUtils.readKeyAsString(verificationKey);
 
         if (format == null || format.equals("jwk")) {
-            JWK jwk = JWK.parse(pemEncodedRSAPublicKey);
+            JWK jwk = JWK.parseFromPEMEncodedObjects(pemEncodedRSAPublicKey);
             return Response.ok(jwk.toJSONString()).type(MediaType.APPLICATION_JSON).build();
         } else if (format.equals("pem")) {
             return Response.ok(pemEncodedRSAPublicKey).build();
