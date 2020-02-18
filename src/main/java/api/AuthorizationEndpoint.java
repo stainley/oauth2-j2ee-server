@@ -7,6 +7,7 @@ import model.Client;
 import model.User;
 
 import javax.annotation.security.RolesAllowed;
+import javax.ejb.Stateful;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Instance;
 import javax.enterprise.inject.literal.NamedLiteral;
@@ -33,6 +34,7 @@ import java.util.*;
 @RolesAllowed("USER")
 @RequestScoped
 @Path("authorize")
+@Stateful
 public class AuthorizationEndpoint {
 
     @Inject
